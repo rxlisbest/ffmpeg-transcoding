@@ -1,0 +1,17 @@
+{
+    "name": "rxlisbest/ffmpeg-transcoding",
+    "description": "A php transcoding library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Roy",
+            "email": "rxlisbest@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Rxlisbest\\FFmpegTranscoding\\": "src"
+        }
+    }
+}
