@@ -8,7 +8,9 @@
             "email": "rxlisbest@gmail.com"
         }
     ],
-    "require": {},
+    "require": {
+        'hassankhan/config': '^1.0.1'
+    },
     "autoload": {
         "psr-4": {
             "Rxlisbest\\FFmpegTranscoding\\": "src"
