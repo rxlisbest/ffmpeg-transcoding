@@ -9,7 +9,7 @@
         }
     ],
     "require": {
-        'hassankhan/config': '^1.0.1'
+        "hassankhan/config": "^1.0.1"
     },
     "autoload": {
         "psr-4": {
