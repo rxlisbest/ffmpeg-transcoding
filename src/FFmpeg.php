@@ -23,8 +23,8 @@ class FFmpeg
         foreach($config as $k => $v){
             foreach($v as $kk => $vv){
                 if(isset($this->config[$k][$kk])){
-                    $v[$kk] = $vv;
-                    $this->config->set($k, $v);
+                    $this->config[$k][$kk] = $vv;
+                    $this->config->set($k, $this->config[$k]);
                 }
             }
         }
