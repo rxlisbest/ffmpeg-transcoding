@@ -21,12 +21,13 @@ class FFmpeg
         }
         $this->config = Config::load(dirname(__FILE__) . '/config.ini');
         foreach($config as $k => $v){
+            $data = $this->config[$k];
             foreach($v as $kk => $vv){
                 if(isset($this->config[$k][$kk])){
-                    $this->config[$k][$kk] = $vv;
-                    $this->config->set($k, $this->config[$k]);
+                    $data[$kk] = $vv;
                 }
             }
+            $this->config->set($k, $data);
         }
     }
 }
