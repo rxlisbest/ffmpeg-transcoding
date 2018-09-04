@@ -31,6 +31,7 @@ class Slice extends FFmpeg
         $cmd .= " -segment_list ${output}";
         $cmd .= " -segment_time " . $this->config['slice']['segment_time'];
         $cmd .= " ${output}.%5d.ts";
+        $cmd .= ' >> ' . $this->config['output']['log'] . ' 2>&1';
         return $cmd;
     }
 }
