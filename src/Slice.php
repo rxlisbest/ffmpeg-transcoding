@@ -14,12 +14,19 @@ class Slice extends FFmpeg
     public function exec($input, $output){
         $output_0 = $output . '.' . $this->config['slice']['avthumb'];
 
+        // transcoding
         $transcoding = new Transcoding($this->config);
-        $cmd = $transcoding->exec($input, $output_0);
+        $result = $transcoding->exec($input, $output_0);
 
-        $cmd = $this->getCmd($output_0, $output);
-        system($cmd, $result);
-        unlink($output_0);
+        if($result === 0){
+            $cmd = $this->getCmd($output_0, $output);
+            system($cmd, $result);
+
+            // delete source file after slice
+            if($result === 0){
+                unlink($output_0);
+            }
+        }
         return $result;
     }
 
