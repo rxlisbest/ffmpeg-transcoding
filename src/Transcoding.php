@@ -22,7 +22,7 @@ class Transcoding extends FFmpeg
             $cmd .= " -${k} ${v}";
         }
         $cmd .= " -y ${output}";
-        $cmd .= ' >> ' . $this->config['output']['log'] . ' 2>&1';
+        $cmd .= ' >> ' . $this->config['output']['log'];
         return $cmd;
     }
 
