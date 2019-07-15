@@ -6,7 +6,7 @@
 ```
 - 安装
 ```
-composer require rxlisbest/ffmpeg-transcoding=~0.1.0
+composer require rxlisbest/ffmpeg-transcoding
 ```
 - 用法
 ```
