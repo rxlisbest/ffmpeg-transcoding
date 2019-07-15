@@ -12,7 +12,19 @@ composer require rxlisbest/ffmpeg-transcoding
 ```
 $config = [
     'ffmpeg' => [
-        'bin' => '/usr/local/bin/ffmpeg' // ffmpeg执行路径
+        'bin' => '/usr/local/bin/ffmpeg' // ffmpeg执行路径（必填）
+    ],
+    'option' => [
+        'ab' => '128k', // 声音码率
+        'acodec' => 'aac', // 音频格式
+        'r' => '30', // 帧率
+        'vb' => '900k', // 视频码率
+        'vcodec' => 'libx264', // 视频格式
+        's' => '1920x1080', // 分辨率
+        'ar' => '44100', // 设置音频采样率
+    ],
+    'slice' => [
+        'segment_time' => '30', // 切片时间
     ]
 ];
 
