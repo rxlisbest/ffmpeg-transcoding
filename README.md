@@ -35,7 +35,6 @@ $input = getcwd() . '/' . 'test.3gp';
 $output = getcwd() . '/' . 'test.mp4';
 $transcoding->exec($input, $output);
 
-
 // 转m3u8
 use Rxlisbest\FFmpegTranscoding\Slice;
 $transcoding = new Slice($config);

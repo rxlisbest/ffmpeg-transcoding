@@ -17,7 +17,7 @@ class FFmpeg
     public function __construct($config = [])
     {
         if(!preg_match("/cli/i", php_sapi_name())){
-            throw new \Exception("This library can only be used in php-cli.");
+//            throw new \Exception("This library can only be used in php-cli.");
         }
         $this->config = Config::load(dirname(__FILE__) . '/config.ini');
         foreach($config as $k => $v){
