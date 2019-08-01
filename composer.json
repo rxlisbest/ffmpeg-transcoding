@@ -1,6 +1,6 @@
 {
     "name": "rxlisbest/ffmpeg-transcoding",
-    "description": "A php transcoding library",
+    "description": "A php-cli transcoding library",
     "license": "MIT",
     "authors": [
         {
