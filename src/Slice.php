@@ -11,34 +11,29 @@ namespace Rxlisbest\FFmpegTranscoding;
 
 class Slice extends FFmpeg
 {
-    public function exec($input, $output){
+    public function exec($input, $output)
+    {
         $output_0 = $output . '.' . $this->config['slice']['avthumb'];
 
         // transcoding
         $transcoding = new Transcoding($this->config);
         $result = $transcoding->exec($input, $output_0);
 
-        if($result === 0){
+        if ($result === 0) {
             $cmd = $this->getCmd($output_0, $output);
             system($cmd, $result);
 
             // delete source file after slice
-            if($result === 0){
+            if ($result === 0) {
                 unlink($output_0);
             }
         }
         return $result;
     }
 
-    protected function getCmd($input, $output){
-        $cmd = $this->config['ffmpeg']['bin'] . " -i ${input}";
-        $cmd .= " -c copy";
-        $cmd .= " -map 0";
-        $cmd .= " -f segment";
-        $cmd .= " -segment_list ${output}";
-        $cmd .= " -segment_time " . $this->config['slice']['segment_time'];
-        $cmd .= " ${output}.%5d.ts";
-        $cmd .= ' >> ' . $this->config['output']['log'] . ' 2>&1';
+    protected function getCmd($input, $output)
+    {
+        $cmd = sprintf("%s -i %s -c copy -map 0 -f segment -segment_list %s -segment_time %s %s.%%5d.ts >> %s 2>&1", $this->config['ffmpeg']['bin'], $input, $output, $this->config['slice']['segment_time'], $output, $this->config['output']['log']);
         return $cmd;
     }
 }

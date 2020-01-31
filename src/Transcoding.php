@@ -10,15 +10,17 @@ namespace Rxlisbest\FFmpegTranscoding;
 
 class Transcoding extends FFmpeg
 {
-    public function exec($input, $output){
+    public function exec($input, $output)
+    {
         $cmd = $this->getCmd($input, $output);
         system($cmd, $result);
         return $result;
     }
 
-    protected function getCmd($input, $output){
+    protected function getCmd($input, $output)
+    {
         $cmd = $this->config['ffmpeg']['bin'] . " -i ${input}";
-        foreach($this->config['option'] as $k => $v){
+        foreach ($this->config['option'] as $k => $v) {
             $cmd .= " -${k} ${v}";
         }
         $cmd .= " -y ${output}";
